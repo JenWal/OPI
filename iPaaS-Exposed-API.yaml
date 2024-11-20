@@ -1,0 +1,406 @@
+openapi: 3.1.0
+x-stoplight:
+  id: uximuzbt8lp81
+info:
+  title: iPaaS Exposed API
+  version: '1.0'
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  /v1/wbhk/mdm/account/golden:
+    post:
+      summary: Golden accounts notification
+      tags: []
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: 'stoplight://resources/overrides/F1fP22qbr2w'
+              examples:
+                Example 1:
+                  value:
+                    contextID: string
+                    status: string
+                    message: string
+      operationId: post-mdm-customer-golden-notification
+      x-stoplight:
+        id: go40r4ssbwjts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                records:
+                  type: array
+                  x-stoplight:
+                    id: c79ojc46xztzu
+                  items:
+                    $ref: '#/components/schemas/Account'
+                    x-stoplight:
+                      id: bfjr7pu4o69kh
+      description: Technical API. Designed to receive a xDM notification by webhook when golden accounts are processed.
+    parameters: []
+  /v1/wbhk/mdm/account/relation/crtd:
+    post:
+      summary: New account relationships notification
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: 'stoplight://resources/overrides/F1fP22qbr2w'
+      operationId: post-mdm-account-new-relationship-notification
+      x-stoplight:
+        id: n6yn2yfzvsju9
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                records:
+                  type: array
+                  x-stoplight:
+                    id: icmve0nf9atqm
+                  items:
+                    $ref: '#/components/schemas/AccountRelationship'
+                    x-stoplight:
+                      id: zjp8f32p3ph5k
+    parameters: []
+  /v1/wbhk/mdm/account/relation/del:
+    post:
+      summary: Deleted account relationships notification
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: 'stoplight://resources/overrides/F1fP22qbr2w'
+      operationId: post-mdm-account-deleted-relationship-notification
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                records:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/AccountRelationship'
+      x-stoplight:
+        id: zxs73a6ekghbn
+    parameters: []
+components:
+  schemas:
+    Account:
+      title: Account
+      x-stoplight:
+        id: jdo2vpqp6he3u
+      type: object
+      properties:
+        goldenId:
+          type: string
+          x-stoplight:
+            id: gh581e7z2kp5v
+        elisId:
+          type: string
+          x-stoplight:
+            id: l2js11koy3qdj
+        nationalId:
+          type: string
+          x-stoplight:
+            id: f6vzl8hg2bpm0
+        nationalIdType:
+          type: string
+          x-stoplight:
+            id: tf9u2vskmw65t
+        genericNationalId:
+          type: string
+          x-stoplight:
+            id: h6hu2i1qaanwc
+        legalName:
+          type: string
+          x-stoplight:
+            id: oi8qwhp4pdfsk
+        commercialName:
+          type: string
+          x-stoplight:
+            id: 65ox3bqsd28fo
+        vatNumber:
+          type: string
+          x-stoplight:
+            id: 16ma7d8rfaagp
+        accountType:
+          type: string
+          x-stoplight:
+            id: mfxr8bxvnwf3t
+        fax:
+          type: string
+          x-stoplight:
+            id: e93v0payzc4w8
+        addressLine1:
+          type: string
+          x-stoplight:
+            id: wwzxhucuu4vr9
+        addressLine2:
+          type: string
+          x-stoplight:
+            id: j2t7iirs0kpug
+        addressLine3:
+          type: string
+          x-stoplight:
+            id: 0p5x8gp74hgcb
+        zipcode:
+          type: string
+          x-stoplight:
+            id: e4mdodudlqatj
+        city:
+          type: string
+          x-stoplight:
+            id: 27xn7jayn8bc1
+        country:
+          $ref: '#/components/schemas/Country'
+          x-stoplight:
+            id: q18lffoy5k236
+        latitude:
+          type: string
+          x-stoplight:
+            id: 4bzeyy6h3hi5s
+        longitude:
+          type: string
+          x-stoplight:
+            id: xphdcaf1qsqpw
+        origin:
+          type: string
+          x-stoplight:
+            id: a1rbsf5nmjdke
+        phone:
+          type: string
+          x-stoplight:
+            id: sx2fixylicbyo
+        email:
+          type: string
+          x-stoplight:
+            id: azuavebntyg0r
+        status:
+          type: string
+          x-stoplight:
+            id: 0orq0ely6h3tx
+        website:
+          type: string
+          x-stoplight:
+            id: wo8slcaji9ha3
+        endDate:
+          type: string
+          x-stoplight:
+            id: 30flyme15q1w3
+          format: date
+        startDate:
+          type: string
+          x-stoplight:
+            id: ac7boaoixxf9o
+          format: date
+        nbOfEmployees:
+          type: string
+          x-stoplight:
+            id: ype0oz66mihmq
+        employeesRange:
+          type: string
+          x-stoplight:
+            id: kspwr7876hcqu
+        activity:
+          type: string
+          x-stoplight:
+            id: xk0rg2r1orhp9
+        market:
+          type: string
+          x-stoplight:
+            id: 40t35pce59wla
+        segment:
+          type: string
+          x-stoplight:
+            id: a6699lys7wct7
+        subSegment:
+          type: string
+          x-stoplight:
+            id: dczx4k8840q4z
+        judicialStatus:
+          type: object
+          $ref: '#/components/schemas/JudicialStatus'
+          x-stoplight:
+            id: m0p67ns6xtzgw
+        language:
+          type: object
+          $ref: '#/components/schemas/Language'
+          x-stoplight:
+            id: x5j9qcu8ddhdk
+        legalForm:
+          type: object
+          $ref: '#/components/schemas/LegalForm'
+          x-stoplight:
+            id: j3t94162gxmg0
+        nature:
+          type: object
+          $ref: '#/components/schemas/Nature'
+          x-stoplight:
+            id: c41clvm8irktk
+        dataProviderNumber:
+          type: string
+          x-stoplight:
+            id: v39ozmcijbdll
+        survivorId:
+          type: string
+          x-stoplight:
+            id: mxpr7c3bzconl
+        survivorAppId:
+          type: string
+          x-stoplight:
+            id: dlrq4e3vd2ihd
+        sources:
+          type: array
+          x-stoplight:
+            id: 4hsqwbdbeu9bl
+          items:
+            $ref: '#/components/schemas/Source'
+            x-stoplight:
+              id: b9ggdhb9itihf
+        countryCode:
+          type: string
+          x-stoplight:
+            id: l0wbi4zke7e8a
+        subdivision:
+          type: string
+          x-stoplight:
+            id: 0gwawpl69x7uf
+    Country:
+      title: Country
+      x-stoplight:
+        id: iq0073mnyn280
+      type: object
+      properties:
+        label:
+          type: string
+          x-stoplight:
+            id: 8hfblsqu5fipb
+        code:
+          type: string
+          x-stoplight:
+            id: 22bvbn3lgg7b5
+    JudicialStatus:
+      title: JudicialStatus
+      x-stoplight:
+        id: 8f7hkit6ayrdc
+      type: object
+      properties:
+        label:
+          type: string
+          x-stoplight:
+            id: 2xgljw648egdu
+        code:
+          type: string
+          x-stoplight:
+            id: p03z5y7sipcv9
+    Language:
+      title: Language
+      x-stoplight:
+        id: s8k1wfyw4x88q
+      type: object
+      properties:
+        label:
+          type: string
+          x-stoplight:
+            id: l6gfio13hnyqx
+        locale:
+          type: string
+          x-stoplight:
+            id: 2s1tgl79et6yq
+    LegalForm:
+      title: LegalForm
+      x-stoplight:
+        id: km44artlyfi7o
+      type: object
+      properties:
+        code:
+          type: string
+          x-stoplight:
+            id: 14bw8n5ryqg64
+        label:
+          type: string
+          x-stoplight:
+            id: 8fndwe3m8odjy
+    Nature:
+      title: Nature
+      x-stoplight:
+        id: 14j95tnawuy3x
+      type: object
+      properties:
+        code:
+          type: string
+          x-stoplight:
+            id: f06t50x1cniua
+        label:
+          type: string
+          x-stoplight:
+            id: uyd77xmog8qh0
+    Source:
+      title: Source
+      x-stoplight:
+        id: ropc4tnmc983z
+      type: object
+      properties:
+        id:
+          type: string
+          x-stoplight:
+            id: 36niyhl54xkwq
+        appId:
+          type: string
+          x-stoplight:
+            id: 6zlqw67blukv8
+    AccountRelationship:
+      title: AccountRelationship
+      x-stoplight:
+        id: bhej109lx0h5q
+      type: object
+      required:
+        - parentElisId
+        - childElisId
+      properties:
+        parentElisId:
+          type: string
+          x-stoplight:
+            id: hemp9ipu8znwn
+          description: Unique ID for the parent account
+        childElisId:
+          type: string
+          x-stoplight:
+            id: vtidcqrzza2y0
+          description: Unique ID for the child account
+        type:
+          x-stoplight:
+            id: zyl0jlr0hfvis
+          enum:
+            - group
+            - subsidiary
+            - indirectsales
+        comment:
+          type: string
+          x-stoplight:
+            id: i9x8r0nmq7s4y
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: ''
+          refreshUrl: ''
+          scopes: {}
